@@ -266,13 +266,13 @@ static double ToDouble(NSNumber* data) { return [FLTGoogleMapJsonConversions toD
   [_mapView moveCamera:cameraUpdate];
 }
 
-- (void)setTrafficEnabled:(BOOL)enabled {
-    if(enabled){
-        _mapView.trafficEnabled = YES;
-    }else{
-     _mapView.trafficEnabled = NO;
-    }
-}
+// - (void)setTrafficEnabled:(BOOL)enabled {
+//     if(enabled){
+//         _mapView.trafficEnabled = YES;
+//     }else{
+//      _mapView.trafficEnabled = NO;
+//     }
+// }
 
 - (GMSCameraPosition*)cameraPosition {
   if (_trackCameraPosition) {
