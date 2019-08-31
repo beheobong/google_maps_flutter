@@ -334,6 +334,14 @@ final class GoogleMapController
           result.success(googleMap.isTrafficEnabled());
           break;
         }
+      case "map#trafficEnabled":
+      {
+        final boolean trafficEnabled = call.argument("trafficEnabled");
+        Log.d("ádfasfa", trafficEnabled +"");
+        googleMap.setTrafficEnabled(trafficEnabled);
+        result.success(null);
+        break;
+      }
       case "map#setStyle":
         {
           String mapStyle = (String) call.arguments;
