@@ -323,6 +323,14 @@ final class GoogleMapController
           result.success(googleMap.getUiSettings().isMapToolbarEnabled());
           break;
         }
+      case "map#trafficEnabled":
+      {
+        final boolean trafficEnabled = call.argument("trafficEnabled");
+        Log.d("ádfasfa", trafficEnabled +"");
+        googleMap.setTrafficEnabled(trafficEnabled);
+        result.success(null);
+        break;
+      }
       case "map#getMinMaxZoomLevels":
         {
           List<Float> zoomLevels = new ArrayList<>(2);

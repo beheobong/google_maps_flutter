@@ -220,6 +220,13 @@ class GoogleMapController {
     return ScreenCoordinate(x: point['x'], y: point['y']);
   }
 
+  
+  Future<void> trafficEnabled(bool trafficEnabled) async {
+    await channel.invokeMethod<void>('map#trafficEnabled', <String, bool>{
+      'trafficEnabled': trafficEnabled,
+    });
+  }
+
   /// Returns [LatLng] corresponding to the [ScreenCoordinate] in the current map view.
   ///
   /// Returned [LatLng] corresponds to a screen location. The screen location is specified in screen

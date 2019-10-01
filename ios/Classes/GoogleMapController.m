@@ -239,7 +239,11 @@ static double ToDouble(NSNumber* data) { return [FLTGoogleMapJsonConversions toD
   } else if ([call.method isEqualToString:@"map#isZoomGesturesEnabled"]) {
     NSNumber* isZoomGesturesEnabled = @(_mapView.settings.zoomGestures);
     result(isZoomGesturesEnabled);
-  } else if ([call.method isEqualToString:@"map#isTiltGesturesEnabled"]) {
+  }else if ([call.method isEqualToString:@"map#trafficEnabled"]) {
+       [self setTrafficEnabled:[FLTGoogleMapJsonConversions toBool:call.arguments[@"trafficEnabled"]]];
+       result(nil);
+  } 
+   else if ([call.method isEqualToString:@"map#isTiltGesturesEnabled"]) {
     NSNumber* isTiltGesturesEnabled = @(_mapView.settings.tiltGestures);
     result(isTiltGesturesEnabled);
   } else if ([call.method isEqualToString:@"map#isRotateGesturesEnabled"]) {
@@ -312,7 +316,11 @@ static double ToDouble(NSNumber* data) { return [FLTGoogleMapJsonConversions toD
 }
 
 - (void)setTrafficEnabled:(BOOL)enabled {
-  _mapView.trafficEnabled = enabled;
+    if(enabled){
+        _mapView.trafficEnabled = YES;
+    }else{
+     _mapView.trafficEnabled = NO;
+    }
 }
 
 - (void)setMapType:(GMSMapViewType)mapType {
